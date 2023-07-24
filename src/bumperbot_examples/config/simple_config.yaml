@@ -1,0 +1,13 @@
+is_real_file: false # bu parametre dosyanın gerçek bir dosya olup olmadığını kontrol eder
+
+# yalandan bir config dosyası oluşturduk, amaç yaml dosyası oluşturmak ve bunu parametre servisine yüklemek
+
+bumperbot:
+  is_real_robot: false
+  number_of_joints: 4
+  name_of_joints:
+    -joint_1
+    -joint_2 
+    -joint_3
+    -joint_4
+    

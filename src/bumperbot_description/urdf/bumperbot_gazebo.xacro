@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<robot name="bumperbot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+<!-- Transmission kavramı aktivatör ile joint arasındaki ilişkiyi tanımlar. -->
+
+
+    <!-- sağ tekere ait tranmission, iletişim, aktarımı tanımlıyoruz-->
+    <transmission name="wheel_right_transmission">
+        <type>transmission_interface/SimpleTransmission</type> <!-- İletim tipi olarak SimpleTransmission seçildi. -->
+        <joint name="wheel_right_joint"> <!-- Jointimizin adını veriyoruz. -->
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface> <!-- tekerimizin hızı da olacağı için hız kontrolü yapıyoruz -->
+        </joint>
+        <actuator name="wheel_right_motor"> <!-- aktivatörümüzü tanımlıyoruz -->
+            <mechanicalReduction>1.0</mechanicalReduction> <!-- mekanik kayıp değeri--> 
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> <!-- tekerimizin posizyon bilgisinin kontrolünü yapıyoruz  -->
+        </actuator>
+    </transmission>
+
+    <transmission name="wheel_left_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="wheel_left_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="wheel_left_motor">
+            <mechanicalReduction>1.0</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="wheel_right_link">
+        <mu1>100000000000000.0</mu1> <!-- tekerin yatay (kayma) sürtünme katsayısı -->
+        <mu2>100000000000000.0</mu2> <!-- tekerin dikey (sabit) sürtünme katsayısı -->
+        <kp>1000000000000.0</kp> <!--  pozisyon kontrolü için geri bildirim değeridir, pozisyon hatasının düzeltilmesini sağlar -->
+        <kd>10</kd> <!-- hız kontrolü için bir geri bildirim değeridir, hız hatasını düzeltmek için geri bildirim yapar -->
+        <minDepth>0.001</minDepth> <!-- tekerin sürtünme için mimimum temas derinliğini temsil eder -->
+        <maxVel>0.1</maxVel> <!-- tekerin hızını sınırlayan parametredir -->
+        <fdir1>1 0 0</fdir1> <!-- sürtünme kuvvetinin yönünü belirtiyoruz, sürtünme x ekseni yönünde olacaktır -->
+    </gazebo>
+
+    <gazebo reference="wheel_left_link">
+        <mu1>100000000000000.0</mu1> <!-- sürtünme katsayısı olan mü-->
+        <mu2>100000000000000.0</mu2> <!-- sürtünme katsayısı olan mü-->
+        <kp>1000000000000.0</kp>
+        <kd>10</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="caster_front_link">
+        <mu1>0.1</mu1> <!-- sürtünme katsayısı olan mü-->
+        <mu2>0.1</mu2> <!-- sürtünme katsayısı olan mü-->
+        <kp>100000000</kp>
+        <kd>100</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="caster_rear_link">
+        <mu1>0.1</mu1> <!-- sürtünme katsayısı olan mü-->
+        <mu2>0.1</mu2> <!-- sürtünme katsayısı olan mü-->
+        <kp>100000000</kp>
+        <kd>100</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <legacyModeNS>true</legacyModeNS>
+        </plugin>
+
+    </gazebo>
+</robot>

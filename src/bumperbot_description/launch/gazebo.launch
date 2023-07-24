@@ -1,0 +1,24 @@
+<launch>
+    <arg name="world" default="empty_world"/>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find bumperbot_description)/urdf/bumperbot.urdf.xacro"/>
+    
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="paused" value="false"/> <!-- dünyevi zaman ile gazebo zamanı arasında fark olmasın diye koyduğumuz parametre-->
+        <arg name="use_sim_time" value="true"/> <!-- robot simülasyonunun dünyevi simülasyon zamanını kullanmasını sağlayan parametre -->
+        <arg name="gui" value="true"/>
+        <!-- Gazebo iki parçadan oluşur, server ve client
+        server kısmında simülasyon bulunur.
+        Server kısmında simülasyonun mantığı ve client bulunur.
+        gui parametresini true yaparak client parçasını da çalıştırmış oluruz.
+        Bu kısımda bizim gördüğümüz simülasyon arayüzüdür.-->
+        <arg name="headless" value="false"/> 
+        <arg name="debug" value="false"/> <!-- terminalde herhangi bir debug mesajı görmeyeceğiz -->
+        <arg name="world_name" value="$(arg world)"/>
+    </include>
+
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_model"
+        args="-unpause -urdf -model robot -param robot_description"
+        output="screen" respawn="false" />
+
+</launch>
