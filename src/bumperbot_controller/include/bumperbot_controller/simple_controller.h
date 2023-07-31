@@ -30,12 +30,12 @@ private: // private kısmı
     ros::Publisher odom_pub_;
     Eigen::Matrix2d speed_conversion_; // Eigen kütüphanesinden Matrix2d sınıfından speed_conversion_ değişkeni oluşturuyoruz
 
-    // araca ait kinematik ve tersine kinematik formüllerinde bulunan değişkenleri (bu değişkenler araca ait özellikleri tutuyorlar) atıyoruz
+    // araca ait kinematik ve tersine kinematik formüllerinde bulunan değişkenleri (bu değişkenler araca ait özellikleri tutuyorlar) oluşturuyoruz
     double wheel_radius_; 
     double wheel_separation_;
 
-    //
-    double left_wheel_prev_pos_;
+    // transformlarda ve odom hesabında kullanılacak olan değişkenleri oluşturuyoruz
+    double left_wheel_prev_pos_; 
     double right_wheel_prev_pos_;
     ros::Time prev_time_;
 
@@ -43,9 +43,9 @@ private: // private kısmı
     double y_;
     double theta_;
 
-    nav_msgs::Odometry odom_msg_;
+    nav_msgs::Odometry odom_msg_; // Odometry sınıfına ait bir odom_msg_ objesi oluşturuyoruz, bu obje ile Odometry verilerine erişebilecek ve değiştirebileceğiz
 
-    geometry_msgs::TransformStamped transform_stamped_;
+    geometry_msgs::TransformStamped transform_stamped_; // Yapılacak olan transformlar için TransformStamped sınıfına ait bir transform_stamped_ objesi oluşturuyoruz
     
     
 
