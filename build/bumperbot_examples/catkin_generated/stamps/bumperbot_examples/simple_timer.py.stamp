@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import rospy
+import rospy # gerekli kütüphaneleri import ediyoruz
 
 def timerCallback(event=None):
     rospy.loginfo("Called timerCallback function")

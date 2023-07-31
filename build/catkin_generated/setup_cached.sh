@@ -8,4 +8,3 @@
 
 # modified environment variables
 export PWD='/home/oguzay/c3_ws/build'
-export PYTHONPATH='/home/oguzay/c3_ws/devel/lib/python3/dist-packages:/home/oguzay/otonom_ws/devel/lib/python3/dist-packages:/opt/ros/noetic/lib/python3/dist-packages'

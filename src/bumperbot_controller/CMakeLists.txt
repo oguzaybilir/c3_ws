@@ -6,6 +6,10 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   geometry_msgs
+  sensor_msgs
+  tf2
+  tf2_ros
+  nav_msgs
 )
 
 find_package(Eigen3 REQUIRED)
@@ -16,6 +20,10 @@ catkin_package(
   CATKIN_DEPENDS
   std_msgs
   geometry_msgs
+  sensor_msgs
+  nav_msgs
+  tf2
+  tf2_ros
   DEPENDS Eigen3
 )
 
@@ -25,6 +33,11 @@ include_directories(
   ${EIGEN3_INCLUDE_DIRS}
 )
 
+
+catkin_install_python(PROGRAMS
+  nodes/simple_controller_node.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 add_library(simple_controller src/simple_controller.cpp)
 add_dependencies(simple_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
