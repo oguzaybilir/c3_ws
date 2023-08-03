@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+bumperbot_controller/CMakeFiles/noisy_controller_node.dir/rule:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bumperbot_controller/CMakeFiles/noisy_controller_node.dir/rule
+.PHONY : bumperbot_controller/CMakeFiles/noisy_controller_node.dir/rule
+
+# Convenience name for target.
+noisy_controller_node: bumperbot_controller/CMakeFiles/noisy_controller_node.dir/rule
+
+.PHONY : noisy_controller_node
+
+# fast build rule for target.
+noisy_controller_node/fast:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller_node.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller_node.dir/build
+.PHONY : noisy_controller_node/fast
+
+# Convenience name for target.
 bumperbot_controller/CMakeFiles/simple_controller_node.dir/rule:
 	cd /home/oguzay/c3_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bumperbot_controller/CMakeFiles/simple_controller_node.dir/rule
 .PHONY : bumperbot_controller/CMakeFiles/simple_controller_node.dir/rule
@@ -708,6 +723,21 @@ geometry_msgs_generate_messages_py/fast:
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+bumperbot_controller/CMakeFiles/noisy_controller.dir/rule:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bumperbot_controller/CMakeFiles/noisy_controller.dir/rule
+.PHONY : bumperbot_controller/CMakeFiles/noisy_controller.dir/rule
+
+# Convenience name for target.
+noisy_controller: bumperbot_controller/CMakeFiles/noisy_controller.dir/rule
+
+.PHONY : noisy_controller
+
+# fast build rule for target.
+noisy_controller/fast:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller.dir/build
+.PHONY : noisy_controller/fast
+
+# Convenience name for target.
 bumperbot_controller/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
 	cd /home/oguzay/c3_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bumperbot_controller/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 .PHONY : bumperbot_controller/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
@@ -872,6 +902,33 @@ tf2_msgs_generate_messages_nodejs/fast:
 	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make bumperbot_controller/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
 
+nodes/noisy_controller_node.o: nodes/noisy_controller_node.cpp.o
+
+.PHONY : nodes/noisy_controller_node.o
+
+# target to build an object file
+nodes/noisy_controller_node.cpp.o:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller_node.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller_node.dir/nodes/noisy_controller_node.cpp.o
+.PHONY : nodes/noisy_controller_node.cpp.o
+
+nodes/noisy_controller_node.i: nodes/noisy_controller_node.cpp.i
+
+.PHONY : nodes/noisy_controller_node.i
+
+# target to preprocess a source file
+nodes/noisy_controller_node.cpp.i:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller_node.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller_node.dir/nodes/noisy_controller_node.cpp.i
+.PHONY : nodes/noisy_controller_node.cpp.i
+
+nodes/noisy_controller_node.s: nodes/noisy_controller_node.cpp.s
+
+.PHONY : nodes/noisy_controller_node.s
+
+# target to generate assembly for a file
+nodes/noisy_controller_node.cpp.s:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller_node.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller_node.dir/nodes/noisy_controller_node.cpp.s
+.PHONY : nodes/noisy_controller_node.cpp.s
+
 nodes/simple_controller_node.o: nodes/simple_controller_node.cpp.o
 
 .PHONY : nodes/simple_controller_node.o
@@ -898,6 +955,33 @@ nodes/simple_controller_node.s: nodes/simple_controller_node.cpp.s
 nodes/simple_controller_node.cpp.s:
 	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/simple_controller_node.dir/build.make bumperbot_controller/CMakeFiles/simple_controller_node.dir/nodes/simple_controller_node.cpp.s
 .PHONY : nodes/simple_controller_node.cpp.s
+
+src/noisy_controller.o: src/noisy_controller.cpp.o
+
+.PHONY : src/noisy_controller.o
+
+# target to build an object file
+src/noisy_controller.cpp.o:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller.dir/src/noisy_controller.cpp.o
+.PHONY : src/noisy_controller.cpp.o
+
+src/noisy_controller.i: src/noisy_controller.cpp.i
+
+.PHONY : src/noisy_controller.i
+
+# target to preprocess a source file
+src/noisy_controller.cpp.i:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller.dir/src/noisy_controller.cpp.i
+.PHONY : src/noisy_controller.cpp.i
+
+src/noisy_controller.s: src/noisy_controller.cpp.s
+
+.PHONY : src/noisy_controller.s
+
+# target to generate assembly for a file
+src/noisy_controller.cpp.s:
+	cd /home/oguzay/c3_ws/build && $(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller.dir/src/noisy_controller.cpp.s
+.PHONY : src/noisy_controller.cpp.s
 
 src/simple_controller.o: src/simple_controller.cpp.o
 
@@ -935,6 +1019,7 @@ help:
 	@echo "... install/strip"
 	@echo "... install"
 	@echo "... edit_cache"
+	@echo "... noisy_controller_node"
 	@echo "... simple_controller_node"
 	@echo "... list_install_components"
 	@echo "... simple_controller"
@@ -974,6 +1059,7 @@ help:
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... noisy_controller"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
@@ -986,9 +1072,15 @@ help:
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_nodejs"
+	@echo "... nodes/noisy_controller_node.o"
+	@echo "... nodes/noisy_controller_node.i"
+	@echo "... nodes/noisy_controller_node.s"
 	@echo "... nodes/simple_controller_node.o"
 	@echo "... nodes/simple_controller_node.i"
 	@echo "... nodes/simple_controller_node.s"
+	@echo "... src/noisy_controller.o"
+	@echo "... src/noisy_controller.i"
+	@echo "... src/noisy_controller.s"
 	@echo "... src/simple_controller.o"
 	@echo "... src/simple_controller.i"
 	@echo "... src/simple_controller.s"

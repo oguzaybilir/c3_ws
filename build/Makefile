@@ -298,6 +298,19 @@ _catkin_empty_exported_target/fast:
 .PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
+# Target rules for targets named noisy_controller_node
+
+# Build rule for target.
+noisy_controller_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 noisy_controller_node
+.PHONY : noisy_controller_node
+
+# fast build rule for target.
+noisy_controller_node/fast:
+	$(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller_node.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller_node.dir/build
+.PHONY : noisy_controller_node/fast
+
+#=============================================================================
 # Target rules for targets named simple_controller_node
 
 # Build rule for target.
@@ -764,6 +777,19 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 geometry_msgs_generate_messages_py/fast:
 	$(MAKE) -f bumperbot_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make bumperbot_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named noisy_controller
+
+# Build rule for target.
+noisy_controller: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 noisy_controller
+.PHONY : noisy_controller
+
+# fast build rule for target.
+noisy_controller/fast:
+	$(MAKE) -f bumperbot_controller/CMakeFiles/noisy_controller.dir/build.make bumperbot_controller/CMakeFiles/noisy_controller.dir/build
+.PHONY : noisy_controller/fast
 
 #=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_lisp
@@ -1347,6 +1373,7 @@ help:
 	@echo "... gtest_main"
 	@echo "... gtest"
 	@echo "... _catkin_empty_exported_target"
+	@echo "... noisy_controller_node"
 	@echo "... simple_controller_node"
 	@echo "... simple_controller"
 	@echo "... nav_msgs_generate_messages_lisp"
@@ -1383,6 +1410,7 @@ help:
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... noisy_controller"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
