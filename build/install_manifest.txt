@@ -11,11 +11,17 @@
 /home/oguzay/c3_ws/install/share/bumperbot_description/cmake/bumperbot_descriptionConfig.cmake
 /home/oguzay/c3_ws/install/share/bumperbot_description/cmake/bumperbot_descriptionConfig-version.cmake
 /home/oguzay/c3_ws/install/share/bumperbot_description/package.xml
+/home/oguzay/c3_ws/install/lib/pkgconfig/bumperbot_localization.pc
+/home/oguzay/c3_ws/install/share/bumperbot_localization/cmake/bumperbot_localizationConfig.cmake
+/home/oguzay/c3_ws/install/share/bumperbot_localization/cmake/bumperbot_localizationConfig-version.cmake
+/home/oguzay/c3_ws/install/share/bumperbot_localization/package.xml
+/home/oguzay/c3_ws/install/lib/bumperbot_localization/kalman_filter_node.py
 /home/oguzay/c3_ws/install/lib/pkgconfig/bumperbot_controller.pc
 /home/oguzay/c3_ws/install/share/bumperbot_controller/cmake/bumperbot_controllerConfig.cmake
 /home/oguzay/c3_ws/install/share/bumperbot_controller/cmake/bumperbot_controllerConfig-version.cmake
 /home/oguzay/c3_ws/install/share/bumperbot_controller/package.xml
 /home/oguzay/c3_ws/install/lib/bumperbot_controller/simple_controller_node.py
+/home/oguzay/c3_ws/install/lib/bumperbot_controller/noisy_controller_node.py
 /home/oguzay/c3_ws/install/share/bumperbot_examples/srv/AddTwoInts.srv
 /home/oguzay/c3_ws/install/share/bumperbot_examples/srv/GetTransform.srv
 /home/oguzay/c3_ws/install/share/bumperbot_examples/cmake/bumperbot_examples-msg-paths.cmake

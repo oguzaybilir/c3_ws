@@ -11,7 +11,7 @@ int main(int argc, char **argv) // main fonksiyonumuzu oluşturuyoruz
     pnh.getParam("wheel_radius", wheel_radius); // pnh değişkeninden wheel_radius değerini alıyoruz
     double wheel_separation; // wheel_separation değişkenini tanımlıyoruz
     pnh.getParam("wheel_separation", wheel_separation); // pnh değişkeninden wheel_separation değerini alıyoruz
-    NoisyController controller(nh, wheel_radius, wheel_separation); // SimpleController sınıfından controller değişkeni oluşturuyoruz ve parametreleri atıyoruz
+    NoisyController controller(nh, wheel_radius, wheel_separation); // NoisyController sınıfından controller değişkeni oluşturuyoruz ve parametreleri atıyoruz
     ros::spin(); // ros node'unu döndürüyoruz
     return 0; // 0 döndürüyoruz
 }

@@ -1,2 +1,2 @@
-bumperbot_controller:bumperbot_description:bumperbot_examples
+bumperbot_controller:bumperbot_description:bumperbot_examples:bumperbot_localization
 -DCATKIN_DEVEL_PREFIX=/home/oguzay/c3_ws/devel -DCMAKE_INSTALL_PREFIX=/home/oguzay/c3_ws/install -G Unix Makefiles

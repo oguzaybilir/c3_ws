@@ -35,7 +35,7 @@ class NoisyController(object): # NoisyController adında bir sınıf oluşturuyo
         
         # Hangi frame den hangi frame e Odometry hesaplanacağını self.odom_msg_ objesine ait mesajlara bildirdik
         self.odom_msg_.header.frame_id = "odom" 
-        self.odom_msg_.child_frame_id = "base_footprint_ekf"
+        self.odom_msg_.child_frame_id = "base_footprint_ekf" # ekf, extended kalman filtresi anlamına gelir
 
         # self.odom_msg_ objesine ait orientation(yön) değerlerini init olarak atadık
         self.odom_msg_.pose.pose.orientation.x = 0.0
@@ -48,7 +48,7 @@ class NoisyController(object): # NoisyController adında bir sınıf oluşturuyo
 
         # Hangi frame'den hangi frame'e dönüşüm yapılacağını self.transform_stamped_ objesine ait mesajlara bildirdik
         self.transform_stamped_.header.frame_id = "odom"
-        self.transform_stamped_.child_frame_id = "base_footprint_noisy"
+        self.transform_stamped_.child_frame_id = "base_footprint_noisy" # bilerek noise eklediğimiz child_frame'i veriyoruz
 
         self.odom_pub_ = rospy.Publisher("bumperbot_controller/odom_noisy", Odometry, queue_size=10) # Odometry verilerimizi yayınlamak için bir publisher node oluşturuyoruz
 
@@ -59,7 +59,9 @@ class NoisyController(object): # NoisyController adında bir sınıf oluşturuyo
     def jointCallback(self, msg):
 
         wheel_encoder_left = msg.position[0] + np.random.normal(0, 0.005) # par:mean value 1 par2: standart deviation
+        # sol tekerin konum bilgilerine noise ekleyerek daha gerçekçi bir hale getiriyoruz
         wheel_encoder_right = msg.position[1] + np.random.normal(0, 0.005) # par1: mean value 1 par:2 standart deviation
+        # sağ tekerin konum bilgilerine noise ekleyerek daha gerçekçi bir hale getiriyoruz
 
         dp_left = wheel_encoder_left - self.left_wheel_prev_pos_ # sol tekerin konum farkını alıyoruz
         dp_right = wheel_encoder_right - self.right_wheel_prev_pos_ # sağ tekerin konum farkını alıyoruz
@@ -120,11 +122,11 @@ class NoisyController(object): # NoisyController adında bir sınıf oluşturuyo
 
 
 if __name__ == "__main__": # main fonksiyonu oluşturuyoruz
-    rospy.init_node("noisy_controller") # simple_controller adında bir node oluşturuyoruz
+    rospy.init_node("noisy_controller") # NoisyController adında bir node oluşturuyoruz
 
     wheel_radius = rospy.get_param("~wheel_radius") # parametreleri alıyoruz
     wheel_seperation = rospy.get_param("~wheel_separation") # parametreleri alıyoruz
-    controller = NoisyController(wheel_radius=wheel_radius, wheel_seperation=wheel_seperation) # SimpleController sınıfından bir nesne oluşturuyoruz
+    controller = NoisyController(wheel_radius=wheel_radius, wheel_seperation=wheel_seperation) # NoisyController sınıfından bir nesne oluşturuyoruz
     
     rospy.spin() # ros'u döndürüyoruz
     

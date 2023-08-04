@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/oguzay/c3_ws/build/gtest/cmake_install.cmake")
   include("/home/oguzay/c3_ws/build/bumperbot_description/cmake_install.cmake")
+  include("/home/oguzay/c3_ws/build/bumperbot_localization/cmake_install.cmake")
   include("/home/oguzay/c3_ws/build/bumperbot_controller/cmake_install.cmake")
   include("/home/oguzay/c3_ws/build/bumperbot_examples/cmake_install.cmake")
 

@@ -27,7 +27,7 @@ NoisyController::NoisyController(const ros::NodeHandle &nh, double radius, doubl
     // header dosyamızdan gelen odom_msg_ verilerine erişiyoruz
     // hangi frameden hangi frame'e yapılacak olan dönüşüm için linklerin isimlerini veriyoruz
     odom_msg_.header.frame_id = "odom";
-    odom_msg_.child_frame_id = "base_footprint_ekf";
+    odom_msg_.child_frame_id = "base_footprint_ekf"; // ekf, extended kalman filtresi anlamına gelmektedir
 
     // odom verilerimizden olan orientation (yön) verilerini oluşturuyoruz
     odom_msg_.pose.pose.orientation.x = 0.0;
@@ -37,19 +37,21 @@ NoisyController::NoisyController(const ros::NodeHandle &nh, double radius, doubl
 
     // transform yapılacak olan frameleri belirliyoruz
     transform_stamped_.header.frame_id = "odom";
-    transform_stamped_.child_frame_id = "base_footprint_noisy";
+    transform_stamped_.child_frame_id = "base_footprint_noisy"; // bilerek noise eklediğimiz child frame id'yi veriyoruz
 
     prev_time_ = ros::Time::now(); // zaman bağlı bir dönüşüm yapılacağı için zamanı güncellemek gerekir, bu nedenle şimdiki zamanı kullanıyoruz
 }
 
 void NoisyController::jointCallback(const sensor_msgs::JointState &state) // JointStates topiğinden gelen verileri alıp işlemek için gerekli callback fonksiyonunu yazıyoruz
 {
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::default_random_engine noise_generator(seed);
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count(); // random kütüphanesinin çalışması için bir seed veriyoruz, lakin bu seedi elle atamak yerine 
+    // bilgisayarın sistem saatine ulaşıp bir sayaç oluşturuyoruz. 
+    // Bu sayede gerçekten random bir değer elde ediyoruz.
+    std::default_random_engine noise_generator(seed); // sürekli olarak değişecek olan noise değerini belirlemeke için noise_generator'a seed değerini veriyoruz
     std::normal_distribution<double> left_encoder_noise(0, 0.005); // par1: mean value par2: standart deviation
     std::normal_distribution<double> right_encoder_noise(0, 0.005); // par1: mean value par2: standart deviation
-    double wheel_encoder_left = state.position.at(0) + left_encoder_noise(noise_generator);
-    double wheel_encoder_right = state.position.at(1) + right_encoder_noise(noise_generator);
+    double wheel_encoder_left = state.position.at(0) + left_encoder_noise(noise_generator); // sol teker konumu bilgisine noise ekleyerek değerlerin daha gerçekçi olmasını sağlıyoruz 
+    double wheel_encoder_right = state.position.at(1) + right_encoder_noise(noise_generator); // sağ teker konumu bilgisine noise ekleyerek değerlerin daha gerçekçi olmasını sağlıyoruz
     // dp_x, delta position of the x, dt ise delta time anlamına gelir.
     double dp_left = wheel_encoder_left - left_wheel_prev_pos_; // sol tekerin anlık konumu - eski konumu hesaplaması ile sol teker konum farkı hesaplanır
     double dp_right = wheel_encoder_right - right_wheel_prev_pos_; // sağ tekerin anlık konumu - eski konumu hesaplaması ile sağ teker konum farkı hesaplanır
