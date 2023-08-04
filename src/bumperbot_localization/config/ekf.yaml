@@ -1,5 +1,6 @@
+# ROS içinde bulunan robot localization paketine ait parametreleri düzenledik
 frequency: 50
-two_d_mode: true
+two_d_mode: true # 2 boyut modu
 publish_tf: true 
 map_frame: map
 odom_frame: odom
@@ -12,7 +13,7 @@ odom0_config: [false, false, false,
               true, false, false,
               false, false, false,
               false, false, false]
-odom0_differential: true
+odom0_differential: true # diferansiyel sürüş kullanılması durumunda odom0 da ayarlama yapılıyor
 
 imu0: imu_ekf
 imu0_config: [false, false, false,
@@ -20,8 +21,9 @@ imu0_config: [false, false, false,
               false, false, false,
               false, false, true,
               true, false, false]
-imu0_differential: true
+imu0_differential: true # diferansiyel sürüş kullanılması durumunda imu0 da ayarlama yapılıyor
 
+# sabit değerler
 process_noise_covariance: [0.05, 0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                           0,    0.05, 0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                           0,    0,    0,    0.03, 0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
@@ -38,6 +40,7 @@ process_noise_covariance: [0.05, 0,    0,    0,    0,    0,    0,     0,     0, 
                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0.01, 0,
                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0.015]
 
+# sabit değerler
 initial_estimate_covariance: [1e-9, 0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
                               0,    1e-9, 0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
                               0,    0,    1e-9, 0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
